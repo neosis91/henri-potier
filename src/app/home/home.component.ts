@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {HenriPotierService} from "../henripotier.service";
+import {HenriPotierService} from '../henripotier.service';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
 
   getAllBooks(){
     this.HenriPotierService.getBooks().subscribe(
-      data =>{
+      data => {
         //set items to json response
       this.allBooks = data;
     },

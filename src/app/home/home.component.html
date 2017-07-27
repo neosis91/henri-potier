@@ -1,3 +1,11 @@
-<p>
-  home works!
-</p>
+<div class="librairie">
+  <md-card *ngFor="let oneBook of allBooks" class="card-schedule">
+    <div class="center-image">
+      <img md-card-image class="oneDataImage" src="{{oneBook.cover}}">
+    </div>
+    <md-card-header>
+      <md-card-title id="{{oneBook.isbn}}"><h2>{{oneBook.title}}</h2></md-card-title>
+      <md-card-subtitle *ngIf="oneBook.price">{{oneBook.price}}</md-card-subtitle>
+    </md-card-header>
+  </md-card>
+</div>

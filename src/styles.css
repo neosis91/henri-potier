@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+  background-color: #eee;
+}
+
+.librairie{
+  width:600px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding:10px 100px;
+}
