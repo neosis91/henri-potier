@@ -15,12 +15,11 @@ export class HenriPotierService {
       .map((res: Response) => res.json())
       .catch((error: any) => Observable.throw('Server error'));
   }
-
   getDiscount(lesIsbn) {
     const url = 'http://henri-potier.xebia.fr/books';
-    for (var i = 0; i <= lesIsbn.length; i++) {
+    for (let i = 0; i <= lesIsbn.length; i++) {
       url.concat(lesIsbn[i]);
-      if (i < lesIsbn.length){
+      if (i < lesIsbn.length) {
         url.concat(',');
       } else {
         url.concat('/commercialOffers');
@@ -29,7 +28,7 @@ export class HenriPotierService {
     console.log('discountUrl: ' + url);
     return this._http.get(url)
       .map((res: Response) => res.json())
-      .catch((error:any) => Observable.throw('Server error'));
+      .catch((error: any) => Observable.throw('Server error'));
   }
 
 }
