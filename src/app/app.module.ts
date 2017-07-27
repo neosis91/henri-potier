@@ -8,13 +8,12 @@ import { HomeComponent } from './home/home.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HenriPotierService,
     HomeComponent
   ],
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [HenriPotierService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
