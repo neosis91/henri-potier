@@ -1,0 +1,10 @@
+<md-toolbar color="primary">
+  <span>Ajouté au panier: {{addBook}}</span>
+
+  <md-toolbar-row *ngFor="let item of cart">
+    <span><i class="material-icons">book</i>{{item.title}}</span>
+    <span class="example-spacer"></span>
+    <span>{{item.price}}€</span>
+  </md-toolbar-row>
+</md-toolbar>
+

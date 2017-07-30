@@ -10,10 +10,12 @@ import {HenriPotierService} from '../henripotier.service';
 export class HomeComponent implements OnInit {
   getBooks: void;
   private allBooks: any[];
+  public addBook = 'Panier vide';
+  public cart = [];
 
   constructor(private HenriPotierService: HenriPotierService) { }
 
-  getAllBooks(){
+  getAllBooks() {
     this.HenriPotierService.getBooks().subscribe(
       data => {
         //set items to json response
@@ -23,7 +25,11 @@ export class HomeComponent implements OnInit {
       () => console.log('success')
     );
   }
-
+  selectedBook(oneBook) {
+    this.addBook = '';
+    if (this.cart.indexOf(oneBook) < 0) {this.cart.push(oneBook)}
+    localStorage.cartItems = JSON.stringify(this.cart);
+  }
   ngOnInit(): void {
     this.getBooks = this.getAllBooks();
   }

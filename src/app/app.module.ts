@@ -11,11 +11,18 @@ import {MdButtonModule, MdToolbarModule, MdInputModule, MdCardModule, MdGridList
 import { AppComponent } from './app.component';
 import { HenriPotierService } from './henripotier.service';
 import { HomeComponent } from './home/home.component';
+import { CartComponent } from './cart/cart.component';
+
+
+//import routes
+import { RouterModule } from '@angular/router';
+import { ROUTES } from './app.routes';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -23,6 +30,7 @@ import { HomeComponent } from './home/home.component';
     HttpModule,
     [BrowserAnimationsModule],
     [MdButtonModule, MdToolbarModule, MdInputModule, MdCardModule, MdGridListModule, MdCheckboxModule],
+    RouterModule.forRoot(ROUTES, { useHash: true })
   ],
   providers: [HenriPotierService],
   bootstrap: [AppComponent]

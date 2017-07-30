@@ -1,7 +1,11 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
-  <h1>
-    Librairie henri potier
-  </h1>
+  <md-toolbar color="primary">
+      <span>Librairie henri potier</span>
+      <span class="example-spacer"></span>
+    <a md-mini-fab routerLink=""><md-icon><i class="material-icons">home</i></md-icon></a>
+    <a md-mini-fab routerLink="/cart"><md-icon><i class="material-icons">shopping_cart</i></md-icon></a>
+  </md-toolbar>
 </div>
-<app-home></app-home>
+
+<router-outlet></router-outlet>
