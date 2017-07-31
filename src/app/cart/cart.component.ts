@@ -11,6 +11,11 @@ import {forEach} from "@angular/router/src/utils/collection";
 export class CartComponent implements OnInit {
   finalDiscount: void;
   public cart = JSON.parse(localStorage.getItem('cartItems'));
+  if(cart === []){
+    this.addBook = 'Votre panier est vide.';
+  } else {
+    this.addBook = '';
+  }
 
   constructor(private HenriPotierService: HenriPotierService) { }
 
@@ -56,6 +61,7 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.finalDiscount = this.getDiscount(this.cart);
+    this.addBook;
   }
 
 }
