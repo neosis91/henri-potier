@@ -27,7 +27,6 @@ export class CartComponent implements OnInit {
     this.HenriPotierService.getDiscount(cart).subscribe(
       data => {
         //set items to json response
-        //this.finalDiscount = data;
         var offers = data.offers;
         offers.forEach(function(e) {
           if (e.type === 'percentage') {
@@ -47,6 +46,7 @@ export class CartComponent implements OnInit {
           }
         });
         console.log(bestDiscount);
+        this.finalDiscount = [price, bestDiscount];
       },
       error => alert(error),
       () => console.log('success')
