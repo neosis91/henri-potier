@@ -2,13 +2,14 @@
   <input type="Search" ng-model="search">
 </div>
 <div class="librairie">
-  <md-card *ngFor="let oneBook of allBooks | filter : search" (click)="selectedBook(oneBook)" class="card-schedule">
+  <md-card *ngFor="let oneBook of allBooks | filter : search" class="card-schedule">
     <div class="center-image">
       <img md-card-image class="oneDataImage" src="{{oneBook.cover}}">
     </div>
     <md-card-header>
       <md-card-title id="{{oneBook.isbn}}"><h2>{{oneBook.title}}</h2></md-card-title>
       <md-card-subtitle *ngIf="oneBook.price">{{oneBook.price}}€</md-card-subtitle>
+      <button md-button (click)="selectedBook(oneBook)"><i class="material-icons">add_shopping_cart</i> AJOUT AU PANIER</button>
     </md-card-header>
   </md-card>
 </div>
