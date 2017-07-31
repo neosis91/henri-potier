@@ -10,7 +10,6 @@ import {HenriPotierService} from '../henripotier.service';
 export class HomeComponent implements OnInit {
   getBooks: void;
   private allBooks: any[];
-  public addBook = 'Panier vide';
   public cart = [];
 
   constructor(private HenriPotierService: HenriPotierService) { }
@@ -30,7 +29,13 @@ export class HomeComponent implements OnInit {
     if (this.cart.indexOf(oneBook) < 0) {this.cart.push(oneBook)}
     localStorage.cartItems = JSON.stringify(this.cart);
   }
-  ngOnInit(): void {
+  unselectedBook(oneBook) {
+    const toDelete = new Set([oneBook]);
+    const newArray = localStorage.cartItems.filter(obj => !toDelete.has(obj.isbn));
+    if (localStorage.cartItems.indexOf(oneBook) === 1) {}
+      localStorage.cartItems = JSON.stringify(this.cart);
+   }
+   ngOnInit(): void {
     this.getBooks = this.getAllBooks();
   }
 
