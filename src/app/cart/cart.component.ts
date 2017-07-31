@@ -18,12 +18,10 @@ export class CartComponent implements OnInit {
   }
 
   constructor(private HenriPotierService: HenriPotierService) { }
-
   reinitCart(){
     localStorage.clear();
     this.cart = [];
   }
-
   getDiscount(cart) {
     // price of books in cart
     var price = 0;
@@ -36,15 +34,25 @@ export class CartComponent implements OnInit {
     //recover discount with service api and choose best discount
     this.HenriPotierService.getDiscount(cart).subscribe(
       data => {
-        //set items to json response
-        var offers = data.offers;
-        offers.forEach(function(e) {
+        //return HenriPotier discount
+        return data.offers;
+      },
+      error => alert(error),
+      () => console.log('success')
+    );
+  }
+  // choose the best discount for the customer
+  getBestDiscount(offers){
+    offers.forEach(function(e) {
+          // conditon for percentage
           if (e.type === 'percentage') {
             priceOffers.push((price * e.value) / 100);
           }
+          // condition for minus
           if (e.type === 'minus') {
             priceOffers.push(e.value);
           }
+          // condition for slice
           if (e.type === 'slice') {
             priceOffers.push(((price - (price % 100)) / e.sliceValue) * e.value);
           }
@@ -57,15 +65,9 @@ export class CartComponent implements OnInit {
         });
         console.log(bestDiscount);
         return [price, bestDiscount];
-      },
-      error => alert(error),
-      () => console.log('success')
-    );
   }
-
-
   ngOnInit(): void {
-    this.finalDiscount = this.getDiscount(this.cart);
+    this.finalDiscount = this.getBestDiscount(this.getDiscount(this.cart));
     this.addBook;
   }
 
