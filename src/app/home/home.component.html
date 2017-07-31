@@ -10,6 +10,7 @@
       <md-card-title id="{{oneBook.isbn}}"><h2>{{oneBook.title}}</h2></md-card-title>
       <md-card-subtitle *ngIf="oneBook.price">{{oneBook.price}}€</md-card-subtitle>
       <button md-button (click)="selectedBook(oneBook)"><i class="material-icons">add_shopping_cart</i> AJOUT AU PANIER</button>
+      <button md-button (click)="unselectedBook(oneBook)"><i class="material-icons">remove_shopping_cart</i> RETIRER DU PANIER</button>
     </md-card-header>
   </md-card>
 </div>
