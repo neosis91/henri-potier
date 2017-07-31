@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
   constructor(private HenriPotierService: HenriPotierService) { }
 
   getAllBooks() {
-    this.HenriPotierService.getBooks().map(
+    this.HenriPotierService.getBooks().subscribe(
       data => {
         //set items to json response
       this.allBooks = data;
