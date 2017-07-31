@@ -46,7 +46,7 @@ export class CartComponent implements OnInit {
           }
         });
         console.log(bestDiscount);
-        this.finalDiscount = [price, bestDiscount];
+        return [price, bestDiscount];
       },
       error => alert(error),
       () => console.log('success')
