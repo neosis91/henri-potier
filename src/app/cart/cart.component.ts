@@ -34,7 +34,7 @@ export class CartComponent implements OnInit {
     var nbBookCart = this.cart.length;
     var priceOffers = [];
     //recover discount with service api and choose best discount
-    this.HenriPotierService.getDiscount(cart).subscribe(
+    this.HenriPotierService.getDiscount(cart).map(
       data => {
         //set items to json response
         var offers = data.offers;
