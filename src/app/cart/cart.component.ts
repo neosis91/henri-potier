@@ -19,6 +19,11 @@ export class CartComponent implements OnInit {
 
   constructor(private HenriPotierService: HenriPotierService) { }
 
+  reinitCart(){
+    localStorage.clear();
+    this.cart = [];
+  }
+
   getDiscount(cart) {
     // price of books in cart
     var price = 0;
